@@ -23,14 +23,14 @@ type EventFormProps = {
 }
 
 const eventFormSchema = z.object({
-  username: z.string().min(1, "Username is required"),
+  title: z.string().min(1, "Username is required"),
 });
 
 const EventForm = ({ userId, type }: EventFormProps) => {
   const form = useForm<z.infer<typeof eventFormSchema>>({
     resolver: zodResolver(eventFormSchema),
     defaultValues: {
-      username: "",
+      title: "",
     },
   })
  
@@ -60,7 +60,7 @@ const EventForm = ({ userId, type }: EventFormProps) => {
             )}
           />
 
-        <FormField
+        {/* <FormField
             control={form.control}
             name="categoryId"
             render={({ field }) => (
@@ -71,7 +71,7 @@ const EventForm = ({ userId, type }: EventFormProps) => {
                 <FormMessage />
               </FormItem>
             )}
-          />
+          /> */}
 
       </div>
 
